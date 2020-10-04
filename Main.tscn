@@ -6,10 +6,10 @@
 [ext_resource path="res://art/ship_light.png" type="Texture" id=4]
 [ext_resource path="res://art/light_blocker.png" type="Texture" id=5]
 
-[sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( 36.875, -0.375, -36.625, -27.125, -22.5, 1, -35.125, 29.25 )
-
 [sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -6.25, 1.875, -17, 16.375, 16, 16.625, 5.75, 1.875, -0.375, -18.625 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( 211.801, 107.858, 235.634, 107.623, 250.972, 114.23, 263.006, 129.332, 261.354, 154.816, 243.421, 171.806, 221.24, 172.042, 213.453, 163.075, 208.025, 145.377, 201.418, 124.14, 204.722, 110.69 )
 
 [node name="Main" type="Node2D"]
@@ -26,19 +26,20 @@ script = ExtResource( 3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
-polygon = PoolVector2Array( -34.3039, 28.3572, 36.2517, -0.30603, -36.5087, -26.7644, -22.3346, 0.953896 )
+polygon = PoolVector2Array( -5.875, 1.875, -16.25, 16.25, 16.125, 16.25, 6.25, 1.875, 0, -18.75 )
 
 [node name="Light2D" type="Light2D" parent="Player"]
-position = Vector2( 38, 0 )
+position = Vector2( 0, -19.25 )
 rotation = -1.5708
 texture = ExtResource( 4 )
-texture_scale = 5.0
+texture_scale = 3.0
 color = Color( 0.984314, 0.984314, 0.658824, 1 )
 energy = 0.75
 shadow_enabled = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player"]
-occluder = SubResource( 2 )
+position = Vector2( 0.375, -0.125 )
+occluder = SubResource( 1 )
 
 [node name="LightBlocker" type="Area2D" parent="."]
 
@@ -52,4 +53,4 @@ polygon = PoolVector2Array( 214.296, 108.637, 230.904, 108.427, 235.949, 111.16,
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="LightBlocker"]
 position = Vector2( -117.466, -97.4433 )
-occluder = SubResource( 1 )
+occluder = SubResource( 2 )

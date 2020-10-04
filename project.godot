@@ -19,6 +19,10 @@ config/name="Space Exploration"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=600
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
