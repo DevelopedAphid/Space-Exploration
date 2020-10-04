@@ -9,7 +9,7 @@ var rotation_rate = PI/2
 
 func _ready():
 	position = get_viewport_rect().size/2
-	rotation = -PI/2
+	rotation = PI/2
 
 func _process(delta):
 	#rotation
@@ -19,7 +19,7 @@ func _process(delta):
 		rotation -= rotation_rate * delta
 	#acceleration
 	if Input.is_action_pressed("ui_up"):
-		acceleration = Vector2(thrust, 0).rotated(rotation)
+		acceleration = Vector2(thrust, 0).rotated(rotation-PI/2) # - PI/2 accounts for sprite pointing upward
 	else: 
 		acceleration = Vector2(0, 0)
 	acceleration += velocity * -friction
