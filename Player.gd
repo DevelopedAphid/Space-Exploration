@@ -7,6 +7,8 @@ var acceleration = Vector2()
 var friction = 2
 var rotation_rate = PI/2
 
+onready var Laser = preload("res://Laser.tscn")
+
 func _ready():
 	position = get_viewport_rect().size/2
 	rotation = PI/2
@@ -29,3 +31,6 @@ func _process(delta):
 	
 	velocity = velocity.clamped(max_velocity)
 	
+	if Input.is_action_pressed("ui_select"):
+		var laser = Laser.instance()
+		add_child(laser)
