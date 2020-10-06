@@ -33,4 +33,4 @@ func _process(delta):
 	
 	if Input.is_action_pressed("ui_select"):
 		var laser = Laser.instance()
-		add_child(laser)
+		get_parent().add_child(laser)
