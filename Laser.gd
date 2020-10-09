@@ -11,8 +11,6 @@ func _ready():
 	global_position -= Vector2(0,24) #24 is to offset the position to the nose tip
 	laser_direction = rotation - PI/2
 	laser_velocity = Vector2(laser_speed, 0).rotated(laser_direction)
-	
-	#to do: laser cooldown timer so you can only shoot x per second
 
 func _process(delta):
 	global_position += laser_velocity * delta

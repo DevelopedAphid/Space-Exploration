@@ -7,7 +7,7 @@
 [ext_resource path="res://art/light_blocker.png" type="Texture" id=5]
 [ext_resource path="res://LightBlocker.gd" type="Script" id=6]
 
-[sub_resource type="OccluderPolygon2D" id=2]
+[sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 211.801, 107.858, 235.634, 107.623, 250.972, 114.23, 263.006, 129.332, 261.354, 154.816, 243.421, 171.806, 221.24, 172.042, 213.453, 163.075, 208.025, 145.377, 201.418, 124.14, 204.722, 110.69 )
 
 [node name="Main" type="Node2D"]
@@ -47,4 +47,4 @@ polygon = PoolVector2Array( 214.296, 108.637, 230.904, 108.427, 235.949, 111.16,
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="LightBlocker"]
 position = Vector2( -117.466, -97.4433 )
-occluder = SubResource( 2 )
+occluder = SubResource( 1 )

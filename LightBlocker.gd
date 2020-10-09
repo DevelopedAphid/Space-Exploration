@@ -1,7 +1,7 @@
 extends Area2D
 
-var hitpoints = 300
+var hitpoints = 30
 
-func _process(delta):
+func _process(_delta):
 	if hitpoints <= 0:
 		queue_free()
