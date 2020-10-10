@@ -4,11 +4,9 @@
 [ext_resource path="res://art/Player.png" type="Texture" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://art/ship_exhaust.png" type="Texture" id=4]
-[ext_resource path="res://art/light_blocker.png" type="Texture" id=5]
-[ext_resource path="res://LightBlocker.gd" type="Script" id=6]
-
-[sub_resource type="OccluderPolygon2D" id=1]
-polygon = PoolVector2Array( 211.801, 107.858, 235.634, 107.623, 250.972, 114.23, 263.006, 129.332, 261.354, 154.816, 243.421, 171.806, 221.24, 172.042, 213.453, 163.075, 208.025, 145.377, 201.418, 124.14, 204.722, 110.69 )
+[ext_resource path="res://GUI.gd" type="Script" id=5]
+[ext_resource path="res://CirclePulseEnemySpawner.gd" type="Script" id=6]
+[ext_resource path="res://SpiralEnemySpawner.gd" type="Script" id=8]
 
 [node name="Main" type="Node2D"]
 
@@ -34,17 +32,20 @@ texture = ExtResource( 4 )
 position = Vector2( 5, 17 )
 texture = ExtResource( 4 )
 
-[node name="LightBlocker" type="Area2D" parent="."]
+[node name="SpiralEnemySpawner" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="CirclePulseEnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="LightBlocker"]
-position = Vector2( 116.808, 42.8831 )
-texture = ExtResource( 5 )
+[node name="GUI" type="Node2D" parent="."]
+script = ExtResource( 5 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LightBlocker"]
-position = Vector2( -117.256, -97.8638 )
-polygon = PoolVector2Array( 214.296, 108.637, 230.904, 108.427, 235.949, 111.16, 242.887, 111.37, 250.245, 115.575, 257.392, 122.512, 262.438, 133.023, 261.597, 145.637, 258.023, 156.568, 252.557, 162.034, 247.512, 163.506, 244.989, 169.182, 241.205, 172.335, 224.597, 172.755, 215.137, 166.239, 213.035, 160.562, 214.086, 156.778, 207.779, 145.216, 206.728, 130.08, 202.944, 125.875, 202.314, 121.04, 204.626, 115.154, 208.41, 110.529 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="LightBlocker"]
-position = Vector2( -117.466, -97.4433 )
-occluder = SubResource( 1 )
+[node name="Hitpoint_Label" type="Label" parent="GUI"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="area_entered" from="Player" to="Player" method="_on_Player_area_entered"]
+[connection signal="hitpoints_notification" from="Player" to="GUI" method="_on_Player_hitpoints_notification"]

@@ -9,6 +9,10 @@ var friction = 2
 var rotation_rate = PI/2
 var screen_size
 
+#combat variables
+var hitpoints = 3
+signal hitpoints_notification(hitpoints)
+
 #laser variables
 var ready_to_shoot = true
 var shoot_timer
@@ -25,6 +29,9 @@ func _ready():
 	shoot_timer.wait_time = shoot_interval
 	shoot_timer.connect("timeout", self, "_on_shoot_timer_timeout")
 	add_child(shoot_timer)
+	
+	#display hitpoints
+	emit_signal("hitpoints_notification", hitpoints)
 
 func _process(delta):
 	#keyboard input
@@ -54,3 +61,9 @@ func _process(delta):
 
 func _on_shoot_timer_timeout():
 	ready_to_shoot = true
+
+
+func _on_Player_area_entered(area):
+	if area.is_in_group("Enemies"):
+		hitpoints -= 1
+		emit_signal("hitpoints_notification", hitpoints)
