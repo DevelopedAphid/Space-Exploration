@@ -1,6 +1,6 @@
 extends Node2D
 
-var time_to_spawn_next_enemy = 0.05
+var time_to_spawn_next_enemy = 0.1
 var enemy_spawn_timer
 var next_angle = 0
 var angle_increment = 5
