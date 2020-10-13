@@ -1,6 +1,6 @@
 extends Node2D
 
-var time_to_spawn_next_enemy = 2.5
+var time_to_spawn_next_enemy = 5
 var enemy_spawn_timer
 var next_angle = 0
 var number_per_pulse = 6
@@ -32,4 +32,5 @@ func _on_enemy_spawn_timer_timeout():
 		
 		next_angle += angle_increment
 	
-	enemy_spawn_timer.start()
+#	enemy_spawn_timer.start()
+	#making it a one shot now or the lag is real
