@@ -25,6 +25,12 @@ func _on_enemy_spawn_timer_timeout():
 	enemy.movement_speed = enemy_movement_speed
 
 	get_parent().add_child(enemy)
+	
+	enemy.connect("enemy_destroyed", self, "_on_Enemy_Destroyed")
 
 	enemy_spawn_timer.start()
 	next_angle += angle_increment
+
+func _on_Enemy_Destroyed():
+	get_parent().get_node("GUI").score += 1
+	#to do: convert this to a signal!

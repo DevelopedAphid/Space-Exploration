@@ -49,5 +49,16 @@ margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Score_Label" type="Label" parent="GUI"]
+margin_left = 362.0
+margin_top = 1.0
+margin_right = 446.0
+margin_bottom = 15.0
+text = "Score: 0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="area_entered" from="Player" to="Player" method="_on_Player_area_entered"]
 [connection signal="hitpoints_notification" from="Player" to="GUI" method="_on_Player_hitpoints_notification"]

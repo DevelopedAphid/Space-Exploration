@@ -7,6 +7,7 @@ var movement_speed
 var acceleration = 0
 #combat variables
 var hitpoints = 3
+signal enemy_destroyed
 
 func _ready():
 	position = Vector2(225,100)
@@ -25,6 +26,7 @@ func _process(delta):
 	
 	#kill enemy when HP is 0
 	if hitpoints <= 0:
+		emit_signal("enemy_destroyed")
 		queue_free()
 
 
