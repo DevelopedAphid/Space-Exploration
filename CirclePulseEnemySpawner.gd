@@ -7,6 +7,7 @@ var number_per_pulse = 36
 var angle_increment = 2 * PI / number_per_pulse
 var enemy_movement_speed = 50
 onready var Enemy = preload("res://Enemy.tscn")
+signal add_to_score
 
 func _ready():
 	#prepare the enemy spawn timer
@@ -29,6 +30,11 @@ func _on_enemy_spawn_timer_timeout():
 		
 		get_parent().add_child(enemy)
 		
+		enemy.connect("enemy_destroyed", self, "_on_Enemy_Destroyed")
+		
 		next_angle += angle_increment
 	
 	enemy_spawn_timer.start()
+
+func _on_Enemy_Destroyed():
+	emit_signal("add_to_score")

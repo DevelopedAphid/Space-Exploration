@@ -34,11 +34,11 @@ texture = ExtResource( 4 )
 position = Vector2( 5, 17 )
 texture = ExtResource( 4 )
 
-[node name="SpiralEnemySpawner" type="Node2D" parent="."]
-script = ExtResource( 8 )
-
 [node name="CirclePulseEnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 6 )
+
+[node name="SpiralEnemySpawner" type="Node2D" parent="."]
+script = ExtResource( 8 )
 
 [node name="GUI" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -62,3 +62,5 @@ __meta__ = {
 }
 [connection signal="area_entered" from="Player" to="Player" method="_on_Player_area_entered"]
 [connection signal="hitpoints_notification" from="Player" to="GUI" method="_on_Player_hitpoints_notification"]
+[connection signal="add_to_score" from="CirclePulseEnemySpawner" to="GUI" method="_on_CirclePulseEnemySpawner_add_to_score"]
+[connection signal="add_to_score" from="SpiralEnemySpawner" to="GUI" method="_on_SpiralEnemySpawner_add_to_score"]
