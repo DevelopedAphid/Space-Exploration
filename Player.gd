@@ -1,5 +1,10 @@
 extends Area2D
 
+#To dos: change the player sprite to a grid ship with boosters on each side. 
+#Grid of input buttons to control each section
+#Can customise which weapon/tool/shield is in each section of grid
+#Unlockables
+
 #movement variables
 var thrust = 500
 var velocity = Vector2()

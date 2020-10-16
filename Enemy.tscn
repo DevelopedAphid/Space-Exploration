@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://art/light_blocker.png" type="Texture" id=2]
-[ext_resource path="res://PulseEnemySpawner.gd" type="Script" id=3]
+[ext_resource path="res://EnemyBulletSpawner.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.2768
@@ -19,6 +19,6 @@ shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
-[node name="PulseEnemySpawner" type="Node2D" parent="."]
+[node name="EnemyBulletSpawner" type="Node2D" parent="."]
 script = ExtResource( 3 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

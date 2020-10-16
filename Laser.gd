@@ -19,6 +19,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func _on_Laser_area_entered(area):
-	if area.name != "Player" and !area.is_in_group("Lasers"):
+	if area.is_in_group("Enemies"):
 		queue_free()
 		area.hitpoints -= laser_damage
